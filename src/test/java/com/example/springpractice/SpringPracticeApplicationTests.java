@@ -27,7 +27,7 @@ class SpringPracticeApplicationTests {
 
 		// 2. When
 		ecoMemberRepository.save(ecoMember1);
-		ecoMemberRepository.save(ecoMember2);
+		ecoMemberRepository.save(ecoMember2);		// 유니크 제약 조건이 발생하는 지점
 
 		// 3. Then
 	}
