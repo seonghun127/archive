@@ -13,7 +13,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class Member implements Serializable {
+public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
