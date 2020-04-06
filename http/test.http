@@ -1,0 +1,10 @@
+### test
+GET localhost:8080/
+Content-Type: application/json
+
+{
+  "value": "test",
+  "value2": "test2"
+}
+
+###
