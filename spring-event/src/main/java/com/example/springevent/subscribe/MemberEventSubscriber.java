@@ -1,21 +1,22 @@
 package com.example.springevent.subscribe;
 
-import com.example.springevent.publish.event.MemberEvent;
-import com.example.springevent.service.MemberService;
+import com.example.springevent.service.event.MemberEvent;
+import com.example.springevent.service.MemberIncreaseService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.event.TransactionalEventListener;
 
 @Slf4j
 @Component
 @RequiredArgsConstructor
 public class MemberEventSubscriber {
 
-    private final MemberService memberService;
+    private final MemberIncreaseService memberIncreaseService;
 
-    @EventListener
+    @TransactionalEventListener
     public void processEvent(MemberEvent memberEvent) {
-        memberService.increase(memberEvent.getId());
+        log.info("Event received! {}", memberEvent.toString());
+        memberIncreaseService.increase(memberEvent.getMember());
     }
 }
