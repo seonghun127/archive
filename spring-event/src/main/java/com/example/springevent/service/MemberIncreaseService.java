@@ -5,20 +5,20 @@ import com.example.springevent.entity.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class MemberService {
+public class MemberIncreaseService {
 
     private final MemberRepository memberRepository;
 
-    @Transactional
-    public Member increase(Long id) {
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public Member increase(Member member) {
         log.info("MemberService.increase is called!");
-        Member member = memberRepository.findById(id).orElseThrow(IllegalArgumentException::new);
         member.increase();
-        return member;
+        return memberRepository.save(member);
     }
 }

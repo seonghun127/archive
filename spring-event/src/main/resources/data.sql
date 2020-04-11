@@ -1,1 +1,0 @@
-insert into member(id, count) values(1L, 123);
