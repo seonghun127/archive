@@ -47,4 +47,22 @@ public class MemberEventSubscriberTest {
         MemberEvent publishedEvent = argumentCaptor.getValue();
         assertThat(publishedEvent).isEqualTo(event);
     }
+
+    @Test
+    public void 이벤트_조건이_부합하지않은경우_이벤트_처리하지_않는지_테스트() {
+        // 1. Given
+        int notConditionCount = 99;
+        Member member = Member.builder()
+                .count(notConditionCount)
+                .build();
+        MemberEvent event = MemberEvent.builder()
+                .member(member)
+                .build();
+
+        // 2. When
+        applicationEventPublisher.publishEvent(event);
+
+        // 3. Then
+        verify(memberEventSubscriber, times(0)).processEvent(argumentCaptor.capture());
+    }
 }
