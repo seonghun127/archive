@@ -1,8 +1,8 @@
-package com.example.springevent.service;
+package com.example.spring.event.service;
 
-import com.example.springevent.entity.Member;
-import com.example.springevent.entity.MemberRepository;
-import com.example.springevent.service.event.MemberEvent;
+import com.example.spring.event.MemberEvent;
+import com.example.spring.event.entity.Member;
+import com.example.spring.event.entity.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationEventPublisher;
@@ -21,6 +21,15 @@ public class MemberEventService {
     public void save() {
         Member member = memberRepository.save(Member.builder()
                 .count(100)
+                .build());
+
+        publishEvent(member);
+    }
+
+    @Transactional
+    public void saveBy(int count) {
+        Member member = memberRepository.save(Member.builder()
+                .count(count)
                 .build());
 
         publishEvent(member);

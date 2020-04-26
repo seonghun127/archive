@@ -1,9 +1,6 @@
-package com.example.springevent.entity;
+package com.example.spring.event.entity;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -11,6 +8,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @ToString
+@EqualsAndHashCode
 public class Member {
 
     @Id

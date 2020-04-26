@@ -1,7 +1,7 @@
-package com.example.springevent.service;
+package com.example.spring.event.service;
 
-import com.example.springevent.entity.Member;
-import com.example.springevent.entity.MemberRepository;
+import com.example.spring.event.entity.MemberRepository;
+import com.example.spring.event.entity.Member;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ public class MemberIncreaseService {
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public Member increase(Member member) {
-        log.info("MemberService.increase is called!");
+        log.info("MemberIncreaseService.increase is called!");
         member.increase();
         return memberRepository.save(member);
     }

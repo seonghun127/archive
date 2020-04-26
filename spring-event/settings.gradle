@@ -1,1 +1,5 @@
 rootProject.name = 'spring-event'
+
+include 'multi-module-api'
+include 'multi-module-core'
+

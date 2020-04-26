@@ -1,6 +1,6 @@
-package com.example.springevent.service.event;
+package com.example.spring.event;
 
-import com.example.springevent.entity.Member;
+import com.example.spring.event.entity.Member;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
