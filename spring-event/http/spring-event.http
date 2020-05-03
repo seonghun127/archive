@@ -2,3 +2,8 @@
 GET http://localhost:8080/
 
 ###
+
+### call api with count pathvariable
+GET http://localhost:8080/members/99
+
+###
