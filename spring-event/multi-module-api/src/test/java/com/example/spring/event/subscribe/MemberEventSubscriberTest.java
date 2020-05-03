@@ -13,8 +13,7 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 @SpringBootTest(classes = MemberEventSubscriber.class)
 @RunWith(SpringRunner.class)
@@ -63,6 +62,6 @@ public class MemberEventSubscriberTest {
         applicationEventPublisher.publishEvent(event);
 
         // 3. Then
-        verify(memberEventSubscriber, times(0)).processEvent(argumentCaptor.capture());
+        verify(memberEventSubscriber, never()).processEvent(argumentCaptor.capture());
     }
 }
